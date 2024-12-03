@@ -12,6 +12,7 @@ const data10 = require('./StreamingHistory_music_10.json')
 
 let month = "" // Check for month
 const song = []
+const artist = []
 const songMs=[]
 
 Object.entries(data0).forEach((indiv) => { // Run through each object in json
@@ -19,6 +20,7 @@ Object.entries(data0).forEach((indiv) => { // Run through each object in json
   if (indiv[1]['endTime'][3] === '4' && month !== "11"){ // check if it ends in 4 meaning 2024 and if the month is not 11 meaning only takes from 1 jan to 31 oct
     if (!song.includes(indiv[1]['trackName'])){
       song.push(indiv[1]['trackName'])
+      artist.push(indiv[1]['artistName'])
       songMs.push(indiv[1]['msPlayed'])
     }
     else {
@@ -31,6 +33,7 @@ Object.entries(data1).forEach((indiv) => {
   if (indiv[1]['endTime'][3] === '4' && month !== "11"){ // check if it ends in 4 meaning 2024 and if the month is not 11 meaning only takes from 1 jan to 31 oct
     if (!song.includes(indiv[1]['trackName'])){
       song.push(indiv[1]['trackName'])
+      artist.push(indiv[1]['artistName'])
       songMs.push(indiv[1]['msPlayed'])
     }
     else {
@@ -43,6 +46,7 @@ Object.entries(data2).forEach((indiv) => {
   if (indiv[1]['endTime'][3] === '4' && month !== "11"){ // check if it ends in 4 meaning 2024 and if the month is not 11 meaning only takes from 1 jan to 31 oct
     if (!song.includes(indiv[1]['trackName'])){
       song.push(indiv[1]['trackName'])
+      artist.push(indiv[1]['artistName'])
       songMs.push(indiv[1]['msPlayed'])
     }
     else {
@@ -55,6 +59,7 @@ Object.entries(data3).forEach((indiv) => {
   if (indiv[1]['endTime'][3] === '4' && month !== "11"){ // check if it ends in 4 meaning 2024 and if the month is not 11 meaning only takes from 1 jan to 31 oct
     if (!song.includes(indiv[1]['trackName'])){
       song.push(indiv[1]['trackName'])
+      artist.push(indiv[1]['artistName'])
       songMs.push(indiv[1]['msPlayed'])
     }
     else {
@@ -67,6 +72,7 @@ Object.entries(data4).forEach((indiv) => {
   if (indiv[1]['endTime'][3] === '4' && month !== "11"){ // check if it ends in 4 meaning 2024 and if the month is not 11 meaning only takes from 1 jan to 31 oct
     if (!song.includes(indiv[1]['trackName'])){
       song.push(indiv[1]['trackName'])
+      artist.push(indiv[1]['artistName'])
       songMs.push(indiv[1]['msPlayed'])
     }
     else {
@@ -79,6 +85,7 @@ Object.entries(data5).forEach((indiv) => {
   if (indiv[1]['endTime'][3] === '4' && month !== "11"){ // check if it ends in 4 meaning 2024 and if the month is not 11 meaning only takes from 1 jan to 31 oct
     if (!song.includes(indiv[1]['trackName'])){
       song.push(indiv[1]['trackName'])
+      artist.push(indiv[1]['artistName'])
       songMs.push(indiv[1]['msPlayed'])
     }
     else {
@@ -91,6 +98,7 @@ Object.entries(data6).forEach((indiv) => {
   if (indiv[1]['endTime'][3] === '4' && month !== "11"){ // check if it ends in 4 meaning 2024 and if the month is not 11 meaning only takes from 1 jan to 31 oct
     if (!song.includes(indiv[1]['trackName'])){
       song.push(indiv[1]['trackName'])
+      artist.push(indiv[1]['artistName'])
       songMs.push(indiv[1]['msPlayed'])
     }
     else {
@@ -103,6 +111,7 @@ Object.entries(data7).forEach((indiv) => {
   if (indiv[1]['endTime'][3] === '4' && month !== "11"){ // check if it ends in 4 meaning 2024 and if the month is not 11 meaning only takes from 1 jan to 31 oct
     if (!song.includes(indiv[1]['trackName'])){
       song.push(indiv[1]['trackName'])
+      artist.push(indiv[1]['artistName'])
       songMs.push(indiv[1]['msPlayed'])
     }
     else {
@@ -115,6 +124,7 @@ Object.entries(data8).forEach((indiv) => {
   if (indiv[1]['endTime'][3] === '4' && month !== "11"){ // check if it ends in 4 meaning 2024 and if the month is not 11 meaning only takes from 1 jan to 31 oct
     if (!song.includes(indiv[1]['trackName'])){
       song.push(indiv[1]['trackName'])
+      artist.push(indiv[1]['artistName'])
       songMs.push(indiv[1]['msPlayed'])
     }
     else {
@@ -127,6 +137,7 @@ Object.entries(data9).forEach((indiv) => {
   if (indiv[1]['endTime'][3] === '4' && month !== "11"){ // check if it ends in 4 meaning 2024 and if the month is not 11 meaning only takes from 1 jan to 31 oct
     if (!song.includes(indiv[1]['trackName'])){
       song.push(indiv[1]['trackName'])
+      artist.push(indiv[1]['artistName'])
       songMs.push(indiv[1]['msPlayed'])
     }
     else {
@@ -148,7 +159,45 @@ Object.entries(data9).forEach((indiv) => {
 //  songCombine[current] = current
 //  songCombine[current]["time"] = songMs[idx]
 // })
-console.log(Math.max(...songMs))
+let copyMs = [...songMs]
+
+// console.log(Math.max(...songMs))
 idxTop = songMs.indexOf(Math.max(...songMs))
-console.log("Your Top song : " + song[idxTop])
-console.log("You have listen to " + song[idxTop] + " for " + (Math.max(...songMs)/60000) + " minutes or " + (Math.max(...songMs)/60000/60)+ " hours.")
+console.log("\nYour Top song : " + song[idxTop] + " by " + artist[idxTop])
+console.log("You have listen to " + song[idxTop] + " for " + (Math.max(...songMs)/60000) + " minutes or " + (Math.max(...songMs)/60000/60)+ " hours.\n")
+
+songMs.splice(idxTop, 1)
+song.splice(idxTop, 1)
+artist.splice(idxTop,1)
+
+// console.log(Math.max(...songMs))
+idxTop = songMs.indexOf(Math.max(...songMs))
+console.log("Your  2nd Top song : " + song[idxTop] + " by " + artist[idxTop])
+console.log("You have listen to " + song[idxTop] + " for " + (Math.max(...songMs)/60000) + " minutes or " + (Math.max(...songMs)/60000/60)+ " hours.\n")
+
+songMs.splice(idxTop, 1)
+song.splice(idxTop, 1)
+artist.splice(idxTop,1)
+
+// console.log(Math.max(...songMs))
+idxTop = songMs.indexOf(Math.max(...songMs))
+console.log("Your  3rd Top song : " + song[idxTop] + " by " + artist[idxTop])
+console.log("You have listen to " + song[idxTop] + " for " + (Math.max(...songMs)/60000) + " minutes or " + (Math.max(...songMs)/60000/60)+ " hours.\n")
+
+songMs.splice(idxTop, 1)
+song.splice(idxTop, 1)
+artist.splice(idxTop,1)
+
+// console.log(Math.max(...songMs))
+idxTop = songMs.indexOf(Math.max(...songMs))
+console.log("Your  4th Top song : " + song[idxTop] + " by " + artist[idxTop])
+console.log("You have listen to " + song[idxTop] + " for " + (Math.max(...songMs)/60000) + " minutes or " + (Math.max(...songMs)/60000/60)+ " hours.\n")
+
+songMs.splice(idxTop, 1)
+song.splice(idxTop, 1)
+artist.splice(idxTop,1)
+
+// console.log(Math.max(...songMs))
+idxTop = songMs.indexOf(Math.max(...songMs))
+console.log("Your  5th Top song : " + song[idxTop] + " by " + artist[idxTop])
+console.log("You have listen to " + song[idxTop] + " for " + (Math.max(...songMs)/60000) + " minutes or " + (Math.max(...songMs)/60000/60)+ " hours.\n")

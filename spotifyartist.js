@@ -148,7 +148,43 @@ Object.entries(data9).forEach((indiv) => {
 //  artistCombine[current] = current
 //  artistCombine[current]["time"] = artistMs[idx]
 // })
-console.log(Math.max(...artistMs))
+//console.log(Math.max(...artistMs))
 idxTop = artistMs.indexOf(Math.max(...artistMs))
-console.log("Your Top Artist : " + artist[idxTop])
-console.log("You have listen to " + artist[idxTop] + " for " + (Math.max(...artistMs)/60000) + " minutes or " + (Math.max(...artistMs)/60000/60)+ " hours.")
+console.log("\nYour Top Artist : " + artist[idxTop])
+console.log("You have listen to " + artist[idxTop] + " for " + (Math.max(...artistMs)/60000) + " minutes or " + (Math.max(...artistMs)/60000/60)+ " hours.\n")
+
+artistMs.splice(idxTop, 1)
+artist.splice(idxTop, 1)
+
+// console.log(Math.max(...songMs))
+//console.log(Math.max(...artistMs))
+idxTop = artistMs.indexOf(Math.max(...artistMs))
+console.log("Your 2nd Top Artist : " + artist[idxTop])
+console.log("You have listen to " + artist[idxTop] + " for " + (Math.max(...artistMs)/60000) + " minutes or " + (Math.max(...artistMs)/60000/60)+ " hours.\n")
+
+artistMs.splice(idxTop, 1)
+artist.splice(idxTop, 1)
+
+// console.log(Math.max(...songMs))
+//console.log(Math.max(...artistMs))
+idxTop = artistMs.indexOf(Math.max(...artistMs))
+console.log("Your 3rd Top Artist : " + artist[idxTop])
+console.log("You have listen to " + artist[idxTop] + " for " + (Math.max(...artistMs)/60000) + " minutes or " + (Math.max(...artistMs)/60000/60)+ " hours.\n")
+
+artistMs.splice(idxTop, 1)
+artist.splice(idxTop, 1)
+
+// console.log(Math.max(...songMs))
+//console.log(Math.max(...artistMs))
+idxTop = artistMs.indexOf(Math.max(...artistMs))
+console.log("Your 4th Top Artist : " + artist[idxTop])
+console.log("You have listen to " + artist[idxTop] + " for " + (Math.max(...artistMs)/60000) + " minutes or " + (Math.max(...artistMs)/60000/60)+ " hours.\n")
+
+artistMs.splice(idxTop, 1)
+artist.splice(idxTop, 1)
+
+// console.log(Math.max(...songMs))
+//console.log(Math.max(...artistMs))
+idxTop = artistMs.indexOf(Math.max(...artistMs))
+console.log("Your 5th Top Artist : " + artist[idxTop])
+console.log("You have listen to " + artist[idxTop] + " for " + (Math.max(...artistMs)/60000) + " minutes or " + (Math.max(...artistMs)/60000/60)+ " hours.\n")
